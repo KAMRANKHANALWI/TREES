@@ -139,20 +139,20 @@ Every internal node has exactly two children, and all leaf nodes are at the same
 For a perfect binary tree:
 
 - Every level is completely filled.
-- Number of nodes at level `L` = \(2^L\), assuming root is level 0.
+- Number of nodes at level `L` = $2^L$, assuming root is level 0.
 - Total nodes for height `h` measured in edges:
 
-\[
-N = 2^{h+1}-1
-\]
+$$
+\color{#1f6feb}{N = 2^{h+1}-1}
+$$
 
 ### 2.4 Balanced Binary Tree
 
 A binary tree is height-balanced if, at every node, the height difference between its left and right subtrees is at most 1.
 
-\[
-|H(left)-H(right)| \leq 1
-\]
+$$
+\color{#1f6feb}{|H(left)-H(right)| \leq 1}
+$$
 
 Example:
 
@@ -194,7 +194,7 @@ Right-skewed:
 
 A degenerate tree behaves similarly to a linked list.
 
-Its height can become \(O(N)\).
+Its height can become $O(N)$.
 
 ---
 
@@ -228,7 +228,7 @@ Main traversal:
 
 ### Pattern
 
-**Root → Left → Right**
+$\color{#1f6feb}{\textbf{Root} \rightarrow \textbf{Left} \rightarrow \textbf{Right}}$
 
 Process the current node immediately, before visiting its children.
 
@@ -275,7 +275,7 @@ def preorder(root, ans):
 
 ### Key Observation
 
-The current node is appended before either recursive call.
+$\color{#1f6feb}{\text{The current node is appended before either recursive call.}}$
 
 ```python
 ans.append(root.val)
@@ -310,7 +310,7 @@ def preorder_iterative(root):
     return ans
 ```
 
-**Why push right before left?**
+$\color{#1f6feb}{\textbf{Why push right before left?}}$
 
 A stack follows LIFO (Last In, First Out).
 
@@ -331,7 +331,7 @@ Pushing right first ensures the left child is popped and processed first.
 
 ### Pattern
 
-**Left → Root → Right**
+$\color{#1f6feb}{\textbf{Left} \rightarrow \textbf{Root} \rightarrow \textbf{Right}}$
 
 Process the current node after completing its left subtree but before visiting its right subtree.
 
@@ -380,7 +380,7 @@ def inorder(root, ans):
 
 ### Key Observation
 
-The current node is appended between the left and right recursive calls.
+$\color{#1f6feb}{\text{The current node is appended between the left and right recursive calls.}}$
 
 ### Iterative Implementation
 
@@ -417,7 +417,7 @@ def inorder_iterative(root):
 
 ### Important Property of BST
 
-For a Binary Search Tree (BST), inorder traversal produces values in sorted ascending order when the BST uses the standard strict ordering of keys.
+$\color{#1f6feb}{\text{For a BST, inorder traversal gives values in sorted ascending order (standard strict key ordering).}}$
 
 ### Complexity
 
@@ -434,7 +434,7 @@ For a Binary Search Tree (BST), inorder traversal produces values in sorted asce
 
 ### Pattern
 
-**Left → Right → Root**
+$\color{#1f6feb}{\textbf{Left} \rightarrow \textbf{Right} \rightarrow \textbf{Root}}$
 
 Process the current node only after both subtrees have been completed.
 
@@ -483,7 +483,7 @@ def postorder(root, ans):
 
 ### Key Observation
 
-The current node is appended after both recursive calls.
+$\color{#1f6feb}{\text{The current node is appended after both recursive calls.}}$
 
 ### Iterative Implementation — Two Stacks
 
@@ -518,15 +518,11 @@ def postorder_iterative(root):
 
 The first stack creates a reverse-like traversal order:
 
-```text
-Root → Right → Left
-```
+$\color{#1f6feb}{\textbf{Root} \rightarrow \textbf{Right} \rightarrow \textbf{Left}}$
 
 The second stack reverses it:
 
-```text
-Left → Right → Root
-```
+$\color{#1f6feb}{\textbf{Left} \rightarrow \textbf{Right} \rightarrow \textbf{Root}}$
 
 This produces postorder.
 
@@ -545,7 +541,7 @@ This produces postorder.
 
 ### Pattern
 
-**BFS — Breadth First Search**
+$\color{#1f6feb}{\textbf{BFS — Breadth First Search}}$
 
 Visit nodes level by level, from left to right.
 
@@ -571,7 +567,7 @@ Expected output:
 
 ### Key Observation
 
-Unlike DFS, BFS does not go deep into one branch immediately.
+$\color{#1f6feb}{\text{Unlike DFS, BFS does not go deep into one branch immediately.}}$
 
 It processes every node at the current level before moving to the next level.
 
@@ -624,7 +620,7 @@ def level_order(root):
 
 ### Understanding `level_size`
 
-This is the most important part:
+$\color{#1f6feb}{\textbf{This is the most important part:}}$
 
 ```python
 level_size = len(queue)
@@ -668,7 +664,7 @@ Calculate preorder, inorder and postorder simultaneously using one iterative tra
 
 ### Key Observation
 
-Every node is processed at three different stages.
+$\color{#1f6feb}{\text{Every node is processed at three different stages.}}$
 
 We can use a stack containing:
 
@@ -869,7 +865,7 @@ def preorder(root, ans):
     return ans
 ```
 
-All recursive calls share the same list.
+$\color{#1f6feb}{\text{All recursive calls share the same list.}}$
 
 Appending a value does not get undone when a recursive call returns.
 
@@ -887,5 +883,3 @@ Appending a value does not get undone when a recursive call returns.
 8. **Queue:** Use `deque.popleft()`, not `list.pop(0)`.
 9. **Empty tree:** Always handle `root is None`.
 10. **Standalone files:** Each problem file should define its own `TreeNode` class and test construction.
-
-
