@@ -1,4 +1,3 @@
-
 """
 ============================================================
 02. CHECK IDENTICAL TREES
@@ -31,10 +30,10 @@ H = Height of the trees.
 ============================================================
 """
 
-
 # ============================================================
 # TREE NODE
 # ============================================================
+
 
 class TreeNode:
     def __init__(self, val):
@@ -46,6 +45,7 @@ class TreeNode:
 # ============================================================
 # APPROACH 1: RECURSIVE DFS
 # ============================================================
+
 
 def is_same_tree(p, q):
 
@@ -62,15 +62,13 @@ def is_same_tree(p, q):
         return False
 
     # Compare left and right subtrees
-    return (
-        is_same_tree(p.left, q.left)
-        and is_same_tree(p.right, q.right)
-    )
+    return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
 
 
 # ============================================================
 # BUILD TEST TREES
 # ============================================================
+
 
 def build_tree_1():
     root = TreeNode(1)
